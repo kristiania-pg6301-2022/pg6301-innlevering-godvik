@@ -8,6 +8,7 @@ export function App() {
     <Routes>
       <Route path={"/"} element={<FrontPage />} />
       <Route path={"/quiz"} element={<Quiz />} />
+      <Route path={"/*"} element={<h1>Page does not exist</h1>} />
     </Routes>
   );
 }

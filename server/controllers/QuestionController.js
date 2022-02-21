@@ -12,7 +12,7 @@ export const getRandomQuestion = (req, res) => {
 };
 
 export const getAnswer = (req, res) => {
-  const { id, answer } = req.body;
+  const { answer, id } = req.body;
   const question = Questions.find((q) => q.id === id);
   if (!question) {
     return res.status(404).json({

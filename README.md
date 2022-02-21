@@ -1,3 +1,6 @@
+[![Test is](https://github.com/kristiania-pg6301-2022/pg6301-innlevering-godvik/actions/workflows/test.yml/badge.svg)](https://github.com/kristiania-pg6301-2022/pg6301-innlevering-godvik/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/kristiania-pg6301-2022/pg6301-innlevering-godvik/badge.svg?branch=main)](https://coveralls.io/github/kristiania-pg6301-2022/pg6301-innlevering-godvik?branch=main)
+
 ### Innlevering med tilbakemelding: React og express på Heroku
 
 Applikasjonen skal vise at dere behersker:

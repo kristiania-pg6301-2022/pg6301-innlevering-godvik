@@ -49,7 +49,10 @@
       "!**/node_modules/**",
       "!coverage/**",
       "!**/dist/**",
-      "index.jsx"
+      "index.jsx",
+      "!**/questions.js",
+      "!babel.config.js",
+      "!**/server.js"
     ]
   },
   "engines": {

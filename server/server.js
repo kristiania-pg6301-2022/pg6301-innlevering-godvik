@@ -1,15 +1,13 @@
 import express from "express";
 import path from "path";
+import { QuizApp } from "./routes/QuizApp.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use("/api", (req, res) => {
-  res.send("Hello World");
-});
+app.use("/api", QuizApp);
 
 app.use(express.static(path.resolve("../client/dist")));
 

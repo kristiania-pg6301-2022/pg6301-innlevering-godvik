@@ -3,7 +3,7 @@ import { useLoader } from "../utils/hooks/useLoader";
 import { fetchJSON } from "../utils/http";
 import { Link } from "react-router-dom";
 
-export function Quiz() {
+export function Quiz({ setScore, setAnsweredQuestions }) {
   const { loading, error, data, reload } = useLoader(
     async () => await fetchJSON("/api/question")
   );
@@ -30,7 +30,16 @@ export function Quiz() {
         "content-type": "application/json",
       },
       body: JSON.stringify({ answer, id }),
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.result) {
+          setScore((score) => score + 1);
+          setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
+        } else {
+          setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
+        }
+      });
   }
 
   return (

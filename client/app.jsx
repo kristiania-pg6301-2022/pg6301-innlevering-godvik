@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { FrontPage } from "./Pages/FrontPage";
-import { Quiz } from "./Pages/QuizPage";
+import { QuizPage } from "./Pages/QuizPage";
 import React, { useState } from "react";
 
 export function App() {
@@ -17,7 +17,7 @@ export function App() {
       <Route
         path={"/quiz"}
         element={
-          <Quiz
+          <QuizPage
             setScore={setScore}
             setAnsweredQuestions={setAnsweredQuestions}
           />

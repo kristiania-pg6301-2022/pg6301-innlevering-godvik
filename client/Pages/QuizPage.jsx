@@ -3,7 +3,7 @@ import { useLoader } from "../utils/hooks/useLoader";
 import { fetchJSON } from "../utils/http";
 import { Link } from "react-router-dom";
 
-export function Quiz({ setScore, setAnsweredQuestions }) {
+export function QuizPage({ setScore, setAnsweredQuestions }) {
   const { loading, error, data, reload } = useLoader(
     async () => await fetchJSON("/api/question")
   );

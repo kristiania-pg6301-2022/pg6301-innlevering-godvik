@@ -17,5 +17,17 @@ describe("QuizApp client testing", () => {
     expect(div.querySelector("[data-testid=status]").textContent).toEqual(
       "You have answered 3 of 10 correctly"
     );
+    expect(pretty(div.innerHTML)).toMatchSnapshot();
+  });
+
+  it("snapshot test for quizapp", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <MemoryRouter>
+        <QuizPage />
+      </MemoryRouter>,
+      div
+    );
+    expect(pretty(div.innerHTML)).toMatchSnapshot();
   });
 });

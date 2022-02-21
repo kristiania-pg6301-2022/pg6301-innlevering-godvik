@@ -18,4 +18,20 @@ describe("Quiz app server test", () => {
       answers: expect.any(Object),
     });
   });
+
+  it("should respond to correct answer", async () => {
+    await request(app)
+      .post("/api/question")
+      .send({ id: 974, answer: "answer_b" })
+      .expect(200)
+      .expect({ result: true });
+  });
+
+  it("should respond to false answer", async () => {
+    await request(app)
+      .post("/api/question")
+      .send({ id: 974, answer: "answer_c" })
+      .expect(200)
+      .expect({ result: false });
+  });
 });

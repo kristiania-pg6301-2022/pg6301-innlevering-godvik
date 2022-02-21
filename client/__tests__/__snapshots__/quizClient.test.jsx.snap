@@ -7,4 +7,6 @@ exports[`QuizApp client testing renders without crashing 1`] = `
 </div>"
 `;
 
+exports[`QuizApp client testing snapshot test for answers 1`] = `"<div><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button></div>"`;
+
 exports[`QuizApp client testing snapshot test for quizapp 1`] = `"<h1>Loading....</h1>"`;

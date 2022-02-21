@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { FrontPage } from "./Pages/FrontPage";
 import { QuizPage } from "./Pages/QuizPage";
 import React, { useState } from "react";
+import { Answers } from "./Pages/Answers";
 
 export function App() {
   const [score, setScore] = useState(0);
@@ -24,6 +25,7 @@ export function App() {
         }
       />
       <Route path={"/*"} element={<h1>Page does not exist</h1>} />
+      <Route path={"/answers/*"} element={<Answers />} />
     </Routes>
   );
 }

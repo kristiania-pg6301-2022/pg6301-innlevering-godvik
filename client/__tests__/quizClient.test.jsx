@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { FrontPage } from "../Pages/FrontPage";
 import { MemoryRouter } from "react-router-dom";
 import { QuizPage } from "../Pages/QuizPage";
+import { Answers } from "../Pages/Answers";
 import pretty from "pretty";
 
 describe("QuizApp client testing", () => {
@@ -25,6 +26,16 @@ describe("QuizApp client testing", () => {
     ReactDOM.render(
       <MemoryRouter>
         <QuizPage />
+      </MemoryRouter>,
+      div
+    );
+    expect(pretty(div.innerHTML)).toMatchSnapshot();
+  });
+  it("snapshot test for answers", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <MemoryRouter>
+        <Answers />
       </MemoryRouter>,
       div
     );

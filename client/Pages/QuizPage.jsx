@@ -2,12 +2,13 @@ import React from "react";
 import { useLoader } from "../utils/hooks/useLoader";
 import { fetchJSON } from "../utils/http";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export function QuizPage({ setScore, setAnsweredQuestions }) {
   const { loading, error, data, reload } = useLoader(
     async () => await fetchJSON("/api/question")
   );
-
+  const navigate = useNavigate();
   const question = data;
 
   if (loading) {
@@ -36,7 +37,9 @@ export function QuizPage({ setScore, setAnsweredQuestions }) {
         if (res.result) {
           setScore((score) => score + 1);
           setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
+          navigate("/answers/correct");
         } else {
+          navigate("/answers/wrong");
           setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
         }
       });

@@ -34,4 +34,12 @@ describe("Quiz app server test", () => {
       .expect(200)
       .expect({ result: false });
   });
+
+  it("should respond to not found", async () => {
+    await request(app)
+      .post("/api/question")
+      .send({ id: 9, answer: "answer_d" })
+      .expect(404)
+      .expect({ msg: "Question not found" });
+  });
 });

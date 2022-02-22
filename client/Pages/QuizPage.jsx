@@ -25,12 +25,12 @@ export function QuizPage({ setScore, setAnsweredQuestions }) {
 
   function quizHandler(answer) {
     const { id } = question;
-    fetch(`/api/question/`, {
+    fetch(`/api/question/${id}`, {
       method: "post",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ answer, id }),
+      body: JSON.stringify({ answer }),
     })
       .then((res) => res.json())
       .then((res) => {

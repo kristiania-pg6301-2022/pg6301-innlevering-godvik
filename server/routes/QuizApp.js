@@ -7,4 +7,4 @@ import {
 export const QuizApp = express.Router();
 
 QuizApp.route("/question").get(getRandomQuestion);
-QuizApp.route("/question/").post(getAnswer);
+QuizApp.route("/question/:id").post(getAnswer);

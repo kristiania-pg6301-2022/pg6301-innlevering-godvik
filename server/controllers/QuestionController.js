@@ -12,7 +12,8 @@ export const getRandomQuestion = (req, res) => {
 };
 
 export const getAnswer = (req, res) => {
-  const { answer, id } = req.body;
+  const id = parseInt(req.params.id);
+  const { answer } = req.body;
   const question = Questions.find((q) => q.id === id);
   if (!question) {
     return res.status(404).json({

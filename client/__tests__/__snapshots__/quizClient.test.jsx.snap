@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuizApp client testing renders without crashing 1`] = `
+exports[`QuizApp client testing Shows answer status 1`] = `
 "<div>
   <h1>Welcome to the QUIZ!!!</h1>
   <div data-testid=\\"status\\">You have answered 3 of 10 correctly</div><a href=\\"/quiz\\">Take a quiz</a>
 </div>"
 `;
 
-exports[`QuizApp client testing snapshot test for answers 1`] = `"<div><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button></div>"`;
+exports[`QuizApp client testing snapshot test for right answers 1`] = `"<div><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button></div>"`;
 
-exports[`QuizApp client testing snapshot test for quizapp 1`] = `"<h1>Loading....</h1>"`;
+exports[`QuizApp client testing snapshot test for wrong answers 1`] = `"<div><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button></div>"`;

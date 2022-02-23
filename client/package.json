@@ -32,5 +32,18 @@
       "pages/**/*.{js,jsx,ts,tsx}",
       "!**/node_modules/**"
     ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
   }
 }

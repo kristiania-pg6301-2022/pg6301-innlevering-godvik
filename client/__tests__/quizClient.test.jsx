@@ -7,6 +7,17 @@ import { Answers } from "../Pages/Answers";
 import pretty from "pretty";
 
 describe("QuizApp client testing", () => {
+  it("should render frontpage", function () {
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <MemoryRouter>
+        <FrontPage />
+      </MemoryRouter>,
+      div
+    );
+    expect(pretty(div.innerHTML)).toMatchSnapshot();
+  });
+
   it("Shows answer status", () => {
     const element = document.createElement("div");
     ReactDOM.render(
@@ -21,22 +32,33 @@ describe("QuizApp client testing", () => {
     expect(pretty(element.innerHTML)).toMatchSnapshot();
   });
 
-  it("snapshot test for wrong answers", () => {
+  it("snapshot on route /answers/wrong when question is wrong", function () {
     const div = document.createElement("div");
     ReactDOM.render(
-      <MemoryRouter>
-        <Answers initialEntries={["/wrong"]} />
+      <MemoryRouter initialEntries={["/wrong"]}>
+        <Answers />} />
       </MemoryRouter>,
       div
     );
     expect(pretty(div.innerHTML)).toMatchSnapshot();
   });
 
-  it("snapshot test for right answers", () => {
+  it("snapshot on route /answers/wrong when question is correct", function () {
     const div = document.createElement("div");
     ReactDOM.render(
-      <MemoryRouter>
-        <Answers initialEntries={["/correct"]} />
+      <MemoryRouter initialEntries={["/correct"]}>
+        <Answers />} />
+      </MemoryRouter>,
+      div
+    );
+    expect(pretty(div.innerHTML)).toMatchSnapshot();
+  });
+
+  it("should show a random question on QuizPage", async function () {
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <MemoryRouter initialEntries={["/quiz"]}>
+        <QuizPage />
       </MemoryRouter>,
       div
     );

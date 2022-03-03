@@ -53,5 +53,8 @@
   "engines": {
     "node": "16.13.2",
     "npm": "8.5.0"
+  },
+  "dependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

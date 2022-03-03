@@ -3,14 +3,14 @@
 exports[`QuizApp client testing Shows answer status 1`] = `
 "<div>
   <h1>Welcome to the QUIZ!!!</h1>
-  <div data-testid=\\"status\\">You have answered 3 of 10 correctly</div><a href=\\"/quiz\\">Take a quiz</a>
+  <p>Loading...</p><a href=\\"/quiz\\">Take a quiz</a>
 </div>"
 `;
 
 exports[`QuizApp client testing should render frontpage 1`] = `
 "<div>
   <h1>Welcome to the QUIZ!!!</h1>
-  <div data-testid=\\"status\\">You have answered of correctly</div><a href=\\"/quiz\\">Take a quiz</a>
+  <p>Loading...</p><a href=\\"/quiz\\">Take a quiz</a>
 </div>"
 `;
 
@@ -18,12 +18,12 @@ exports[`QuizApp client testing should show a random question on QuizPage 1`] = 
 
 exports[`QuizApp client testing snapshot on route /answers/wrong when question is correct 1`] = `
 "<div>
-  <h1>CORRECT ANSWER</h1><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button>
+  <h1>CORRECT ANSWER</h1><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Home</a></button>
 </div>} /&gt;"
 `;
 
 exports[`QuizApp client testing snapshot on route /answers/wrong when question is wrong 1`] = `
 "<div>
-  <h1>WRONG ANSWER</h1><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Show score</a></button>
+  <h1>WRONG ANSWER</h1><button><a href=\\"/quiz\\">New question</a></button><button><a href=\\"/\\">Home</a></button>
 </div>} /&gt;"
 `;

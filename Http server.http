@@ -1,8 +1,8 @@
-POST {{server}}/api/question
+POST {{server}}/api/question/974
 Content-Type: application/json
 
 {
-  "id": 974,
+
   "answer": "answer_b"
 }
 

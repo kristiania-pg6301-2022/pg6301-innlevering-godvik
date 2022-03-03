@@ -22,13 +22,11 @@ describe("QuizApp client testing", () => {
     const element = document.createElement("div");
     ReactDOM.render(
       <MemoryRouter>
-        <FrontPage initialEntries={["/"]} score={3} answeredQuestions={10} />
+        <FrontPage />
       </MemoryRouter>,
       element
     );
-    expect(element.querySelector("[data-testid=status]").textContent).toEqual(
-      "You have answered 3 of 10 correctly"
-    );
+
     expect(pretty(element.innerHTML)).toMatchSnapshot();
   });
 

@@ -9,7 +9,7 @@ app.use("/api", QuizApp);
 
 describe("Quiz app server test", () => {
   it("should return a 200 response", async () => {
-    const response = await request(app).get("/api/question/");
+    const response = request(app).get("/api/question/");
     expect(response.status).toBe(200);
     expect(response.body).toMatchObject({
       id: expect.any(Number),
@@ -20,11 +20,15 @@ describe("Quiz app server test", () => {
   });
 
   it("should respond to correct answer", async () => {
-    await request(app)
-      .post("/api/question/974")
-      .send({ answer: "answer_b" })
-      .expect(200)
-      .expect({ result: true });
+    const response = await request(app).post("/api/question/974").send({
+      answer: "answer_b",
+    });
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        result: "correct",
+      })
+    );
   });
 
   it("should respond to false answer", async () => {

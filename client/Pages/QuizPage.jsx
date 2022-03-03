@@ -1,15 +1,17 @@
 import React from "react";
 import { useLoader } from "../utils/hooks/useLoader";
-import { fetchJSON } from "../utils/http";
+import { fetchJSON, requestJSON } from "../utils/http";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
-export function QuizPage({ setScore, setAnsweredQuestions }) {
-  const { loading, error, data, reload } = useLoader(
-    async () => await fetchJSON("/api/question")
-  );
+export function QuizPage() {
+  const {
+    loading,
+    error,
+    data: question,
+    reload,
+  } = useLoader(async () => await fetchJSON("/api/question"));
   const navigate = useNavigate();
-  const question = data;
 
   if (loading) {
     return <h1>Loading....</h1>;
@@ -23,37 +25,26 @@ export function QuizPage({ setScore, setAnsweredQuestions }) {
     );
   }
 
-  function quizHandler(answer) {
-    const { id } = question;
-    fetch(`/api/question/${id}`, {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ answer }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.result) {
-          setScore((score) => score + 1);
-          setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
-          navigate("/answers/correct");
-        } else {
-          navigate("/answers/wrong");
-          setAnsweredQuestions((answeredQuestions) => answeredQuestions + 1);
-        }
-      });
+  async function quizHandler(answer) {
+    const res = await requestJSON(
+      `/api/question/${question?.id}`,
+      { answer },
+      "POST"
+    );
+    if (res.result === "correct") {
+      navigate("/answers/correct");
+    } else navigate("/answers/wrong");
   }
 
   return (
     <div>
-      <h1>{question.question}</h1>
-      {Object.keys(question.answers)
-        .filter((a) => question.answers[a])
+      <h1>{question?.question}</h1>
+      {Object.keys(question?.answers)
+        .filter((a) => question?.answers[a])
         .map((answer) => (
           <div key={answer}>
             <button onClick={() => quizHandler(answer)}>
-              {question.answers[answer]}
+              {question?.answers[answer]}
             </button>
           </div>
         ))}
